@@ -10,6 +10,19 @@ function togglePlayPause() {
 
   isPlaying = !isPlaying;
 }
+function setLyricsContainerHeight() {
+  const audioPlayerHeight = 174; // Change this value to the height of your audio player
+  const lyricsContainer = document.getElementById("lyrics-container");
+
+  if (lyricsContainer) {
+    const visibleHeight =
+      window.innerHeight || document.documentElement.clientHeight;
+    lyricsContainer.style.height = visibleHeight - audioPlayerHeight + "px";
+  }
+}
+
+window.addEventListener("resize", setLyricsContainerHeight);
+window.addEventListener("load", setLyricsContainerHeight);
 
 function playMusic() {
   const instrumental = document.getElementById("instrumental");
